@@ -112,7 +112,7 @@
     <main>
         <div id="welcome-gate" class="card" style="display: block; text-align: center;">
             <h2>Assalam-o-Alaikum Student! 👋</h2>
-            <p style="color: #64748b; margin-top: 10px; line-height: 1.7; font-size: 1.02rem;">Muhammad Nazim bhai ke professional production enterprise learning portal par khushamdeed. Git/GitHub Clouds, Full Front-End Architecture, Responsive Engineering, Javascript Runtime, aur Firebase Live System Core Database Logics ko full depth details me seekhne ke liye apna Google account authenticate karein.</p>
+            <p style="color: #64748b; margin-top: 10px; line-height: 1.7; font-size: 1.02rem;">Muhammad Nazim ke professional production enterprise learning portal par khushamdeed. Git/GitHub Clouds, Full Front-End Architecture, Responsive Engineering, Javascript Runtime, aur Firebase Live System Core Database Logics ko full depth details me seekhne ke liye apna Google account authenticate karein.</p>
         </div>
 
         <div id="payment-gate" class="card">
