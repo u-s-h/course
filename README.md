@@ -30,15 +30,16 @@
         .input-field { width: 100%; padding: 14px; margin-bottom: 15px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 1rem; outline: none; }
         .btn-submit { width: 100%; padding: 14px; background: #3182ce; color: white; border: none; border-radius: 8px; font-size: 1.05rem; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(49,130,206,0.25); }
 
-        /* Premium Syllabus & Chapters Expansion */
+        /* Long Content Syllabus Styles */
         .chapter-card { background: white; padding: 25px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); border-left: 6px solid #3182ce; text-align: left; position: relative; }
-        .chapter-locked { opacity: 0.6; pointer-events: none; border-left-color: #a0aec0; }
-        .chapter-locked::before { content: "🔒 Chapter Locked (Complete Previous Test)"; position: absolute; top: 10px; right: 15px; background: #e2e8f0; color: #4a5568; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
+        .chapter-locked { opacity: 0.5; pointer-events: none; border-left-color: #a0aec0; }
+        .chapter-locked::before { content: "🔒 Locked (Pass Previous Chapter Test)"; position: absolute; top: 15px; right: 15px; background: #cbd5e0; color: #4a5568; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
         
         .chapter-title { color: #1a365d; font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; border-bottom: 2px solid #edf2f7; padding-bottom: 8px; }
-        .topic-sec { margin-bottom: 15px; background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #edf2f7; }
+        .topic-sec { margin-bottom: 20px; background: #f8fafc; padding: 18px; border-radius: 8px; border: 1px solid #edf2f7; }
         .topic-sec h4 { color: #2b6cb0; margin-bottom: 8px; font-size: 1.1rem; }
-        .code-box { background: #1a202c; color: #f7fafc; padding: 12px; border-radius: 6px; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem; margin-top: 5px; overflow-x: auto; }
+        .topic-sec p { line-height: 1.6; font-size: 0.98rem; color: #4a5568; margin-bottom: 10px; }
+        .code-box { background: #1a202c; color: #f7fafc; padding: 14px; border-radius: 6px; font-family: 'Courier New', Courier, monospace; font-size: 0.88rem; margin-top: 8px; overflow-x: auto; white-space: pre; line-height: 1.5; }
         
         /* Interactive Quiz Styling */
         .quiz-box { background: #ebf8ff; border: 2px solid #bee3f8; padding: 20px; border-radius: 10px; margin-top: 20px; }
@@ -46,9 +47,9 @@
         .quiz-option { display: block; background: white; padding: 10px 15px; border: 1px solid #e2e8f0; border-radius: 6px; margin: 8px 0; cursor: pointer; transition: 0.2s; font-weight: 500; }
         .quiz-option:hover { background: #e2e8f0; }
         .quiz-option input { margin-right: 10px; }
-        .btn-quiz { background: #2b6cb0; color: white; padding: 8px 16px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .btn-quiz { background: #2b6cb0; color: white; padding: 10px 20px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px; }
         
-        /* Admin View */
+        /* Admin Modal Layout */
         .admin-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); z-index: 1000; justify-content: center; align-items: center; padding: 15px; }
         .admin-content { background: white; padding: 30px; border-radius: 15px; max-width: 600px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; }
         .close-admin { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #a0aec0; }
@@ -74,27 +75,27 @@
 
     <header>
         <div id="secret-trigger" class="secret-logo">👨‍💻</div>
-        <h1>Web Development Complete Premium Course</h1>
-        <p>Instructor & Industry Mentor: Muhammad Nazim</p>
+        <h1>A to Z Full Stack Web Development</h1>
+        <p>Instructor & Platform Architect: Muhammad Nazim</p>
     </header>
 
     <main>
         <div id="welcome-gate" class="card" style="display: block; text-align: center;">
             <h2>Assalam-o-Alaikum Student! 👋</h2>
-            <p style="color: #64748b; margin-top: 10px; line-height: 1.6;">Muhammad Nazim bhai ke premium learning portal par khushamdeed. A to Z long detailed chapters aur interactive assessments access karne ke liye apna Google account login karein.</p>
+            <p style="color: #64748b; margin-top: 10px; line-height: 1.6;">Muhammad Nazim bhai ke premium learning portal par khushamdeed. Git, GitHub Architecture, Full Coding Frameworks aur Firebase Backends ko zero se professional level seekhne ke liye apna Google account login karein.</p>
         </div>
 
         <div id="payment-gate" class="card">
             <div id="student-status-notice"></div>
 
             <h2>🔒 Premium Content Locked</h2>
-            <p style="color: #64748b; margin-top: 5px;">Full course chapters unlock karne ke liye monthly subscription fee transfer kar ke verify karwayein:</p>
+            <p style="color: #64748b; margin-top: 5px;">A to Z Master Modules ko instant active karne ke liye monthly course subscription fee transfer kar ke details submit karein:</p>
             
             <div class="account-wrapper">
                 <div class="account-item"><strong>📱 JazzCash Account:</strong> <span>03705519562</span></div>
                 <div class="account-item"><strong>📱 EasyPaisa Account:</strong> <span>03379827882</span></div>
                 <div class="account-item"><strong>👤 Account Title:</strong> <span>Muhammad Nazim</span></div>
-                <div class="account-item"><strong>💰 Monthly Subscription:</strong> <span>1,500 PKR (Valid for 30 Days)</span></div>
+                <div class="account-item"><strong>💰 Subscription Fee:</strong> <span>1,500 PKR (30 Days Validity)</span></div>
             </div>
 
             <form id="payment-form">
@@ -107,166 +108,163 @@
 
         <div id="course-content" class="card">
             <div style="background: #e6fffa; padding: 12px; border-radius: 8px; color: #234e52; font-weight: bold; text-align: center; margin-bottom: 25px;">
-                🎉 Premium Course Dashboard: Active Status (30 Days Access Provisioned)
+                🚀 Premium Access Status: Active (30 Days Unlimited Portal Streaming Provided)
             </div>
 
             <div class="chapter-card" id="ch1">
-                <div class="chapter-title">📚 Chapter 1: HTML5 Architecture & Semantic Layouts</div>
+                <div class="chapter-title">📚 Chapter 1: UI/UX Coding Foundations (HTML5 & CSS3 Architecture)</div>
                 
                 <div class="topic-sec">
-                    <h4>1. Termux Production Setup:</h4>
-                    <p>Professional directory structure create karne ke liye Termux terminal par ye command chalayein:</p>
-                    <div class="code-box">mkdir -p prime-project/{assets/css,assets/js,pages}
-cd prime-project && touch index.html assets/css/style.css</div>
+                    <h4>1. Local Development Setup via Android (Termux & Acode):</h4>
+                    <p>Mobile par professional environment build karne ke liye Termux terminal par ye exact command stream chalayein:</p>
+                    <div class="code-box"># Internal storage link allow karein
+termux-setup-storage
+
+# Project directory framework set karein
+mkdir -p prime-web-app/assets/{css,js,images}
+cd prime-web-app && touch index.html assets/css/style.css</div>
                 </div>
 
                 <div class="topic-sec">
-                    <h4>2. HTML5 Semantic Scaffolding:</h4>
-                    <p>SEO-friendly aur robust standard structural elements jo har modern layout ka hissa hote hain:</p>
-                    <div class="code-box">&lt;header&gt;
-    &lt;nav&gt;Home | About | Courses&lt;/nav&gt;
-&lt;/header&gt;
-&lt;main&gt;
-    &lt;article&gt;
-        &lt;h2&gt;Semantic Web Development&lt;/h2&gt;
-        &lt;p&gt;Learning structure under Prime Solutions.&lt;/p&gt;
-    &lt;/article&gt;
-&lt;/main&gt;
-&lt;footer&gt;&copy; 2026 Academy&lt;/footer&gt;</div>
+                    <h4>2. HTML5 Semantic Blueprint Structure:</h4>
+                    <p>Apne `index.html` file ke andar SEO-optimized layout ka full template script code is tarah likhein:</p>
+                    <div class="code-box">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Prime Solutions Prototype&lt;/title&gt;
+    &lt;link rel="stylesheet" href="assets/css/style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Live Project Ecosystem&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        &lt;p&gt;Developing dynamic applications under Nazim Bhai.&lt;/p&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+                </div>
+
+                <div class="topic-sec">
+                    <h4>3. CSS3 Flexbox & Mobile-First Media Queries:</h4>
+                    <p>Apni website ko mobile aur desktop dono par professional looks dene ke liye `style.css` mein spacing aur flex alignments configure karein:</p>
+                    <div class="code-box">body { background: #f7fafc; font-family: sans-serif; padding: 20px; }
+header { display: flex; justify-content: center; background: #1a365d; color: white; padding: 15px; border-radius: 8px; }
+
+/* Responsive Media Query Breakpoint */
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    header { flex-direction: column; text-align: center; }
+}</div>
                 </div>
 
                 <div class="quiz-box" id="quiz1-box">
                     <h5>📝 Chapter 1 Verification Test:</h5>
-                    <p style="font-size: 0.95rem; margin-bottom: 10px; color:#4a5568;"><strong>Q. Kis tag ka use layout mein footer ya copyright details show karne ke liye kiya jata hai?</strong></p>
-                    <label class="quiz-option"><input type="radio" name="q1" value="wrong"> &lt;bottom&gt;</label>
-                    <label class="quiz-option"><input type="radio" name="q1" value="correct"> &lt;footer&gt;</label>
-                    <label class="quiz-option"><input type="radio" name="q1" value="wrong"> &lt;section&gt;</label>
-                    <button class="btn-quiz" onclick="verifyTest(1)">Submit Answer</button>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px; color:#4a5568;"><strong>Q. Elements ko responsiveness dene aur screens ke size ke mutabiq design badalne ke liye CSS mein kya use kiya jata hai?</strong></p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="wrong"> Box-Model Parameters</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="correct"> @media Rules (Media Queries)</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="wrong"> DOM Document Alignment</label>
+                    <button class="btn-quiz" onclick="verifyTest(1)">Submit Assignment Answer</button>
                 </div>
             </div>
 
             <div class="chapter-card chapter-locked" id="ch2">
-                <div class="chapter-title">📚 Chapter 2: Modern CSS3 Aesthetics & Box-Model</div>
+                <div class="chapter-title">📚 Chapter 2: GitHub Cloud Cloud Deployments From A to Z</div>
                 
                 <div class="topic-sec">
-                    <h4>1. CSS Box-Model Concepts:</h4>
-                    <p>Margin, Border, Padding aur Content spacing ko effectively customize karna seekhein:</p>
-                    <div class="code-box">.custom-card {
-    width: 100%;
-    padding: 20px;
-    margin: 15px 0;
-    border: 2px solid #3182ce;
-    box-sizing: border-box;
-}</div>
+                    <h4>1. Local Identity Authorization:</h4>
+                    <p>Git system ko use karne se pehle apni identification keys aur name global level par configure karna zaroori hai:</p>
+                    <div class="code-box">git init
+git config --global user.name "YourGitHubUsername"
+git config --global user.email "youraccount@gmail.com"</div>
                 </div>
 
                 <div class="topic-sec">
-                    <h4>2. CSS Flexbox Layout Alignment:</h4>
-                    <p>Bina float use kiye cards ya elements ko dynamic flexible row ya column mein responsive alignment dena:</p>
-                    <div class="code-box">.flex-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}</div>
+                    <h4>2. Branching & Commit Pipelines:</h4>
+                    <p>Files ko secure storage backup stack mein save karne aur master commit block build karne ka tarika:</p>
+                    <div class="code-box"># Status track karein
+git status
+
+# Tamam additions save stack me bhejein
+git add .
+
+# Official timestamp checkpoint save karein
+git commit -m "Integrated premium infrastructure pipeline"</div>
+                </div>
+
+                <div class="topic-sec">
+                    <h4>3. Pushing Live Code to GitHub Pages Website:</h4>
+                    <p>Apni website ko poori duniya ko dikhane ke liye (jaise `u-s-h.github.io`) live server deployment execute karne ki full commands sequence:</p>
+                    <div class="code-box"># Branch standard name set karein
+git branch -M main
+
+# GitHub cloud web account se repository url jorein
+git remote add origin https://github.com/YourGitHubUsername/repository-name.git
+
+# Code safe server backup par push karein
+git push -u origin main</div>
                 </div>
 
                 <div class="quiz-box" id="quiz2-box">
                     <h5>📝 Chapter 2 Verification Test:</h5>
-                    <p style="font-size: 0.95rem; margin-bottom: 10px; color:#4a5568;"><strong>Q. Flex items ko horizontally control karne ke liye kis property ka use hota hai?</strong></p>
-                    <label class="quiz-option"><input type="radio" name="q2" value="correct"> justify-content</label>
-                    <label class="quiz-option"><input type="radio" name="q2" value="wrong"> align-items</label>
-                    <label class="quiz-option"><input type="radio" name="q2" value="wrong"> display-grid</label>
-                    <button class="btn-quiz" onclick="verifyTest(2)">Submit Answer</button>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px; color:#4a5568;"><strong>Q. Apne local repository code ko internet par maujood online remote GitHub repository server par upload karne ke liye konsi command use hoti hai?</strong></p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="correct"> git push</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="wrong"> git commit</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="wrong"> git init</label>
+                    <button class="btn-quiz" onclick="verifyTest(2)">Submit Assignment Answer</button>
                 </div>
             </div>
 
             <div class="chapter-card chapter-locked" id="ch3">
-                <div class="chapter-title">📚 Chapter 3: Mobile-First Responsive Media Queries</div>
+                <div class="chapter-title">📚 Chapter 3: Firebase Live Database & Auth Ecosystem From A to Z</div>
                 
                 <div class="topic-sec">
-                    <h4>1. Viewport Meta Configuration:</h4>
-                    <p>Mobile screens par elements auto-shrink hone se rokne ke liye head tag mein layout definition:</p>
-                    <div class="code-box">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</div>
+                    <h4>1. Firebase Web Modules Installation CDN:</h4>
+                    <p>Apni web apps mein database link karne ke liye script tag module pipelines ka initialization setup code structure:</p>
+                    <div class="code-box">&lt;script type="module"&gt;
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+  // Web application database keys config parameters
+  const firebaseConfig = {
+    apiKey: "YOUR_PROD_API_KEY",
+    authDomain: "your-app.firebaseapp.com",
+    projectId: "your-app-id",
+    storageBucket: "your-app.appspot.com"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+&lt;/script&gt;</div>
                 </div>
 
                 <div class="topic-sec">
-                    <h4>2. Media Queries Implementation:</h4>
-                    <p>Mobile, Tablet aur Desktop screens ke mutabiq alag stylings trigger karna:</p>
-                    <div class="code-box">@media (max-width: 768px) {
-    body { background-color: #ffffff; padding: 10px; }
-    .flex-container { flex-direction: column; }
-}</div>
+                    <h4>2. Real-Time Data Injection Processing (Writing to Firestore):</h4>
+                    <p>Student ki investment requests or dynamic parameters ko cloud infrastructure data rows me direct inject karna:</p>
+                    <div class="code-box">// User document upload script
+await setDoc(doc(db, "students", "unique_id"), {
+    name: "Zeeshan",
+    courseJoined: "Full Stack Master Web Development",
+    status: "paid",
+    joinedTimestamp: new Date().toISOString()
+}, { merge: true });</div>
                 </div>
 
                 <div class="quiz-box" id="quiz3-box">
                     <h5>📝 Chapter 3 Verification Test:</h5>
-                    <p style="font-size: 0.95rem; margin-bottom: 10px; color:#4a5568;"><strong>Q. Responsive layouts build karne ke liye styling mein kis conditional rule ka use kiya jata hai?</strong></p>
-                    <label class="quiz-option"><input type="radio" name="q3" value="wrong"> @responsive</label>
-                    <label class="quiz-option"><input type="radio" name="q3" value="correct"> @media</label>
-                    <label class="quiz-option"><input type="radio" name="q3" value="wrong"> @screen</label>
-                    <button class="btn-quiz" onclick="verifyTest(3)">Submit Answer</button>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px; color:#4a5568;"><strong>Q. Firebase Firestore Database Cloud me data row record create ya permanently add karne ke liye kis method function ka use kiya jata hai?</strong></p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="wrong"> getFirestore()</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="correct"> setDoc()</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="wrong"> initializeApp()</label>
+                    <button class="btn-quiz" onclick="verifyTest(3)">Submit Assignment Answer</button>
                 </div>
             </div>
 
-            <div class="chapter-card chapter-locked" id="ch4">
-                <div class="chapter-title">📚 Chapter 4: Version Control Systems & GitHub Deployments</div>
-                
-                <div class="topic-sec">
-                    <h4>1. Git Core Initialization Flow:</h4>
-                    <p>Apne local code ka full cloud secure pipeline backup checkpoint create karne ka standard workflow:</p>
-                    <div class="code-box">git init
-git config --global user.name "Your Name"
-git config --global user.email "email@example.com"</div>
-                </div>
-
-                <div class="topic-sec">
-                    <h4>2. Pushing Staged Code to Cloud Remote Server:</h4>
-                    <p>GitHub platform par production-ready lines safe upload karne ka terminal command method:</p>
-                    <div class="code-box">git add .
-git commit -m "Build course core dashboard"
-git branch -M main
-git remote add origin https://github.com/username/repo.git
-git push -u origin main</div>
-                </div>
-
-                <div class="quiz-box" id="quiz4-box">
-                    <h5>📝 Chapter 4 Verification Test:</h5>
-                    <p style="font-size: 0.95rem; margin-bottom: 10px; color:#4a5568;"><strong>Q. Files ko staging queue se save kar ke permanent local checkpoint banane ke liye konsi command use hoti hai?</strong></p>
-                    <label class="quiz-option"><input type="radio" name="q4" value="wrong"> git push</label>
-                    <label class="quiz-option"><input type="radio" name="q4" value="correct"> git commit</label>
-                    <label class="quiz-option"><input type="radio" name="q4" value="wrong"> git status</label>
-                    <button class="btn-quiz" onclick="verifyTest(4)">Submit Answer</button>
-                </div>
-            </div>
-
-            <div class="chapter-card chapter-locked" id="ch5">
-                <div class="chapter-title">📚 Chapter 5: JavaScript Dynamic Engine Foundations</div>
-                
-                <div class="topic-sec">
-                    <h4>1. Variables & DOM Interactivity:</h4>
-                    <p>Variables container system aur user click action event dynamically link handle karna:</p>
-                    <div class="code-box">const userName = "Student";
-document.getElementById("btn-action").addEventListener("click", () => {
-    alert("Welcome " + userName + " to JavaScript Universe!");
-});</div>
-                </div>
-
-                <div class="topic-sec">
-                    <h4>2. Functions & Conditional Control Flows:</h4>
-                    <p>Logic processing code aur calculation algorithms create karne ki structure:</p>
-                    <div class="code-box">function checkEligibility(age) {
-    if (age >= 18) {
-        return "Eligible for Advanced Web Development Program";
-    } else {
-        return "Recommended for Basics Program";
-    }
-}</div>
-                </div>
-
-                <div style="background: #ebf8ff; border: 2px solid #bee3f8; padding: 20px; border-radius: 10px; text-align: center; margin-top: 20px;">
-                    <h3>🎓 Congratulations Student!</h3>
-                    <p style="margin-top: 5px; color:#4a5568;">Aapne Prime Solutions Web Academy ka full practical course successfully complete kar liya hai! Keep learning and building awesome apps! 🔥</p>
-                </div>
+            <div class="chapter-card chapter-locked" id="ch4" style="background: #ebf8ff; border-left-color: #48bb78; text-align: center;">
+                <h3 style="color: #2b6cb0;">🎓 Prime Solutions Graduation Milestone!</h3>
+                <p style="margin-top: 8px; font-weight: 500;">Mubarak ho! Aapne Muhammad Nazim bhai ka complete practical A to Z workflow system step-by-step seekh kar pure test pass kar liye hain. Now you are a certified live deployment master! 🚀</p>
             </div>
         </div>
     </main>
@@ -283,7 +281,7 @@ document.getElementById("btn-action").addEventListener("click", () => {
 </div>
 
 <footer>
-    <p>© 2026 Prime Solutions Inc. Course Curriculum Structured by Muhammad Nazim. All Rights Reserved. 🚀</p>
+    <p>© 2026 Prime Solutions Inc. Developed by Muhammad Nazim. All Rights Reserved. 🚀</p>
 </footer>
 
 <script type="module">
@@ -308,7 +306,7 @@ document.getElementById("btn-action").addEventListener("click", () => {
   let currentUser = null;
 
   document.getElementById("btn-login").addEventListener("click", () => {
-      signInWithPopup(auth, provider).catch(err => alert("Auth Error: " + err.message));
+      signInWithPopup(auth, provider).catch(err => alert("Auth Engine Crash: " + err.message));
   });
 
   onAuthStateChanged(auth, async (user) => {
@@ -316,7 +314,7 @@ document.getElementById("btn-action").addEventListener("click", () => {
       currentUser = user;
       document.getElementById("user-display").innerText = "👤 " + user.displayName;
       document.getElementById("btn-login").style.display = "none";
-      document.getElementById("welcome-gate").style.display = "none";
+    document.getElementById("welcome-gate").style.display = "none";
       syncUserAuthorization();
     } else {
       document.getElementById("welcome-gate").style.display = "block";
@@ -346,9 +344,9 @@ document.getElementById("btn-action").addEventListener("click", () => {
                   document.getElementById("payment-gate").style.display = "none";
                   document.getElementById("course-content").style.display = "block";
                   
-                  // Retain Student's Completed Progress Levels from DB if exist
+                  // Sync current step progress dynamically
                   if(userData.chapterProgress) {
-                      for(let i=2; i<=5; i++) {
+                      for(let i=2; i<=4; i++) {
                           if(userData.chapterProgress >= i) {
                               document.getElementById("ch" + i).classList.remove("chapter-locked");
                           }
@@ -360,7 +358,7 @@ document.getElementById("btn-action").addEventListener("click", () => {
               document.getElementById("payment-gate").style.display = "block";
               document.getElementById("course-content").style.display = "none";
               formElement.style.display = "block";
-              noticeDiv.innerHTML = `<div class="status-box status-expired">🚨 Premium Alert: Aapki monthly fee ki validity (30 days) poori ho chuki hai. Next month content access karne ke liye fee send kar ke re-apply karein!</div>`;
+              noticeDiv.innerHTML = `<div class="status-box status-expired">🚨 Premium Alert: Aapki monthly fee validity (30 days) poori ho chuki hai. Content access karne ke liye fee verification re-apply karein!</div>`;
           }
           else if (userData.status === "pending") {
               document.getElementById("payment-gate").style.display = "block";
@@ -398,7 +396,7 @@ document.getElementById("btn-action").addEventListener("click", () => {
                       screenshot_base64: reader.result,
                       submitted_at: new Date().toISOString()
                   }, { merge: true });
-                  alert("Details sent successfully!");
+                  alert("Details transmitted successfully to Cloud Pipeline!");
                   syncUserAuthorization();
               } catch (err) { alert("Error: " + err.message); }
           };
@@ -406,13 +404,13 @@ document.getElementById("btn-action").addEventListener("click", () => {
       }
   });
 
-  // Automated Quiz Verifier Engine
+  // Dynamic Quiz Evaluator
   window.verifyTest = async function(chapterNumber) {
       const selectedOpt = document.querySelector(`input[name="q${chapterNumber}"]:checked`);
-      if(!selectedOpt) return alert("Pehle option select karein!");
+      if(!selectedOpt) return alert("Pehle data choice select karein!");
 
       if(selectedOpt.value === "correct") {
-          alert("🎉 Correct Answer! Agla Chapter Unlock ho gaya hai.");
+          alert("🎉 Correct Answer Matrix! Next Core Module Successfully Unlocked.");
           const nextChapterNum = chapterNumber + 1;
           
           const nextChEl = document.getElementById("ch" + nextChapterNum);
@@ -420,7 +418,6 @@ document.getElementById("btn-action").addEventListener("click", () => {
               nextChEl.classList.remove("chapter-locked");
           }
           
-          // Save progress synchronization inside Firestore Cloud
           if(currentUser) {
               try {
                   await setDoc(doc(db, "users", currentUser.uid), {
@@ -429,11 +426,11 @@ document.getElementById("btn-action").addEventListener("click", () => {
               } catch(e) { console.log(e); }
           }
       } else {
-          alert("❌ Galat Jawab! Code ko dobara dhyan se padhein aur phir sahi answer choose karein.");
+          alert("❌ Operational Input Error: Wrong Answer! Code blocks ko dobara dehan se study karein.");
       }
   }
 
-  // Admin Controls (4-Taps System)
+  // 4-Tap Secret Trigger Control Entry Panel
   let clickSessionCount = 0;
   let clickTimeout;
   document.getElementById("secret-trigger").addEventListener("click", () => {
@@ -488,7 +485,7 @@ document.getElementById("btn-action").addEventListener("click", () => {
                       await updateDoc(doc(db, "users", targetedUid), { 
                           status: "paid",
                           approved_at: new Date().toISOString(),
-                          chapterProgress: 1 // Default reset to Chapter 1 progress
+                          chapterProgress: 1
                       });
                       alert("🎯 Student Access Activated for 30 Days!");
                       launchControlConsole(); 
