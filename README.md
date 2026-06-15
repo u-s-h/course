@@ -16,8 +16,8 @@
         body {
             background-color: #f1f5f9;
             color: #1e293b;
-            padding-bottom: 70px; /* Space for bottom app nav */
-            direction: rtl; /* UI optimized for Urdu/RTL structure naturally */
+            padding-bottom: 70px; 
+            direction: rtl; 
         }
 
         /* App Top Header */
@@ -62,7 +62,6 @@
             opacity: 0.9;
         }
 
-        /* App Main Content Container */
         .app-container {
             padding: 0 15px;
         }
@@ -86,7 +85,7 @@
             background: transparent;
         }
 
-        /* Quick Actions Grid (App Like Icons) */
+        /* Quick Actions Grid */
         .action-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -104,12 +103,6 @@
             font-weight: bold;
             color: #1e3a8a;
             text-decoration: none;
-            transition: transform 0.2s;
-        }
-
-        .action-item:active {
-            transform: scale(0.95);
-            background: #eff6ff;
         }
 
         .action-item .icon {
@@ -127,7 +120,7 @@
             border-right: 4px solid #2563eb;
         }
 
-        /* Mobile Scrollable Cards (Horizontal or Vertical Stack) */
+        /* Cards Layout */
         .card-stack {
             display: flex;
             flex-direction: column;
@@ -163,7 +156,7 @@
             color: #64748b;
         }
 
-        /* Mobile Responsive Directory List */
+        /* Services Directory */
         .service-list {
             background: white;
             border-radius: 12px;
@@ -180,10 +173,6 @@
             border-bottom: 1px solid #f1f5f9;
         }
 
-        .service-item:last-child {
-            border-bottom: none;
-        }
-
         .service-name {
             font-weight: bold;
             font-size: 0.95rem;
@@ -198,7 +187,7 @@
             font-weight: bold;
         }
 
-        /* Review Section App Styling */
+        /* Review Section */
         .app-feedback {
             background: white;
             border-radius: 12px;
@@ -226,9 +215,10 @@
             border-radius: 8px;
             font-weight: bold;
             font-size: 1rem;
+            cursor: pointer;
         }
 
-        /* Bottom Navigation Bar (App Dock) */
+        /* Bottom Navigation Dock */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -263,7 +253,6 @@
             margin-bottom: 2px;
         }
 
-        /* Floating Center Action Contact */
         .whatsapp-float-btn {
             background-color: #25D366;
             color: white;
@@ -278,6 +267,10 @@
             text-decoration: none;
         }
     </style>
+
+    <!-- Firebase Compatibility SDKs (GitHub Pages کے لیے سب سے بیسٹ اور آسان طریقہ) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 </head>
 <body>
 
@@ -295,12 +288,12 @@
     <!-- Main Content App Views -->
     <div class="app-container">
 
-        <!-- Search Bar Component -->
+        <!-- Search Bar -->
         <div class="search-box">
             <input type="text" id="appSearch" onkeyup="filterAppCards()" placeholder="وادی یا مقام کا نام لکھیں...">
         </div>
 
-        <!-- Quick Action Menu Icons -->
+        <!-- Quick Action Menu -->
         <div class="action-grid">
             <a href="#places-sec" class="action-item"><span class="icon">🗺️</span>مقامات</a>
             <a href="#services-sec" class="action-item"><span class="icon">🚗</span>ٹرانسپورٹ</a>
@@ -310,8 +303,6 @@
         <!-- Destinations Section -->
         <h3 class="section-title" id="places-sec">مشہور وادیاں</h3>
         <div class="card-stack" id="appCardStack">
-            
-            <!-- Card 1 -->
             <div class="app-card">
                 <img src="https://images.unsplash.com/photo-1627483262769-04d0a1401487?q=80&w=600" alt="Hunza">
                 <div class="app-card-content">
@@ -320,7 +311,6 @@
                 </div>
             </div>
 
-            <!-- Card 2 -->
             <div class="app-card">
                 <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?q=80&w=600" alt="Attabad">
                 <div class="app-card-content">
@@ -329,7 +319,6 @@
                 </div>
             </div>
 
-            <!-- Card 3 -->
             <div class="app-card">
                 <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=600" alt="Skardu">
                 <div class="app-card-content">
@@ -337,10 +326,9 @@
                     <p>بلتستان کا مرکز، شنگریلا جھیل اور سرفرنگا سرد ریگستان۔</p>
                 </div>
             </div>
-
         </div>
 
-        <!-- Services & Transport Section -->
+        <!-- Services Section -->
         <h3 class="section-title" id="services-sec">لوکل سروسز ریٹس</h3>
         <div class="service-list">
             <div class="service-item">
@@ -357,23 +345,22 @@
             </div>
         </div>
 
-        <!-- Interactive Feedback App Feature -->
-        <h3 class="section-title" id="feed-sec">سیاحوں کا فیڈ بیک</h3>
+        <!-- Firebase Live Review Section -->
+        <h3 class="section-title" id="feed-sec">سیاحوں کا فیڈ بیک (Live)</h3>
         <div class="app-feedback">
             <input type="text" id="appUser" placeholder="آپ کا نام">
             <textarea id="appMsg" rows="3" placeholder="اپنا تجربہ لکھیں..."></textarea>
             <button onclick="submitAppFeedback()">ریویو جمع کریں</button>
             
+            <!-- یہ ڈو (Div) اب فائر بیس سے لائیو کمنٹس لوڈ کرے گا -->
             <div id="appCommentsBox" style="margin-top: 15px;">
-                <div style="background: #f8fafc; padding: 10px; border-radius: 6px; margin-top: 10px; font-size: 0.9rem;">
-                    <strong>کامران (لاہور):</strong> <p>بہت ہی زبردست پورٹل ہے، معلومات بہت کارآمد ثابت ہوئیں۔</p>
-                </div>
+                <p style="text-align: center; color: #64748b; font-size: 0.9rem;" id="loadingText">ریویوز لوڈ ہو رہے ہیں...</p>
             </div>
         </div>
 
     </div>
 
-    <!-- Bottom App Navigation Dock Bar -->
+    <!-- Bottom App Navigation Dock -->
     <div class="bottom-nav">
         <a href="#home-sec" class="nav-tab active" onclick="setActiveTab(this)">
             <span class="tab-icon">🏠</span>
@@ -384,8 +371,7 @@
             <span>مقامات</span>
         </a>
         
-        <!-- WhatsApp Direct App Call Action Inside Navigation -->
-        <a href="https://wa.me/923332637235" target="_blank" class="whatsapp-float-btn" title="WhatsApp">
+        <a href="https://wa.me/923332637235" target="_blank" class="whatsapp-float-btn">
             💬
         </a>
 
@@ -399,13 +385,74 @@
         </a>
     </div>
 
-    <!-- JavaScript For App Functions -->
+    <!-- Firebase Logic & App Scripts -->
     <script>
-        // App Filter Search logic
+        // آپ کی فراہم کردہ فائر بیس کنفیگریشن
+        const firebaseConfig = {
+          apiKey: "AIzaSyBiti-Ih5nxvRQ8Xt9YImiN1X3RnPoXoTI",
+          authDomain: "gilgit-79048.firebaseapp.com",
+          databaseURL: "https://gilgit-79048-default-rtdb.firebaseio.com",
+          projectId: "gilgit-79048",
+          storageBucket: "gilgit-79048.firebasestorage.app",
+          messagingSenderId: "784852692962",
+          appId: "1:784852692962:web:eab87b313e024ebf7953bb"
+        };
+
+        // فائر بیس انیشیلائزیشن
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // 1. فائر بیس سے کمنٹس لائیو سننا (Read Comments)
+        database.ref('reviews').on('value', (snapshot) => {
+            let box = document.getElementById('appCommentsBox');
+            let loadingText = document.getElementById('loadingText');
+            if(loadingText) loadingText.remove();
+            
+            box.innerHTML = ""; // پرانا لوکل ڈیٹا صاف کریں
+            
+            let data = snapshot.val();
+            if(data) {
+                // کمنٹس کو الٹے آرڈر (Newest First) میں دکھانے کے لیے
+                Object.keys(data).reverse().forEach((key) => {
+                    let item = document.createElement('div');
+                    item.style.cssText = "background: #f8fafc; padding: 10px; border-radius: 6px; margin-top: 10px; font-size: 0.9rem; border-left: 3px solid #1e3a8a; text-align: right;";
+                    item.innerHTML = `<strong>${data[key].username}:</strong> <p style="margin-top:3px; color:#475569;">${data[key].message}</p>`;
+                    box.appendChild(item);
+                });
+            } else {
+                box.innerHTML = `<p style="text-align: center; color: #64748b; font-size: 0.9rem;">ابھی تک کوئی فیڈ بیک نہیں ہے۔ پہلے وزٹر بنیں!</p>`;
+            }
+        });
+
+        // 2. فائر بیس میں نیا کمنٹ سیو کرنا (Write Comment)
+        function submitAppFeedback() {
+            let user = document.getElementById('appUser').value;
+            let msg = document.getElementById('appMsg').value;
+            
+            if(user.trim() === "" || msg.trim() === "") {
+                alert("براہ کرم تمام معلومات لکھیں!");
+                return;
+            }
+            
+            // فائر بیس ریل ٹائم ڈیٹا بیس میں پش کرنا
+            database.ref('reviews').push({
+                username: user,
+                message: msg,
+                timestamp: Date.now()
+            }).then(() => {
+                // فارم صاف کریں
+                document.getElementById('appUser').value = "";
+                document.getElementById('appMsg').value = "";
+            }).catch((error) => {
+                alert("خرابی: ڈیٹا سیو نہیں ہو سکا۔ رولز چیک کریں!");
+                console.error(error);
+            });
+        }
+
+        // سرچ فلٹر
         function filterAppCards() {
             let query = document.getElementById('appSearch').value.toLowerCase();
             let cards = document.getElementsByClassName('app-card');
-            
             for(let i=0; i<cards.length; i++) {
                 let text = cards[i].innerText.toLowerCase();
                 if(text.includes(query)) {
@@ -416,34 +463,13 @@
             }
         }
 
-        // Active Tabs highlighting logic like true Mobile Apps
+        // ایکٹیو ٹیب ہائی لائٹ
         function setActiveTab(element) {
             let tabs = document.getElementsByClassName('nav-tab');
             for(let i=0; i<tabs.length; i++) {
                 tabs[i].classList.remove('active');
             }
             element.classList.add('active');
-        }
-
-        // App-like Dynamic Reviews posting logic
-        function submitAppFeedback() {
-            let user = document.getElementById('appUser').value;
-            let msg = document.getElementById('appMsg').value;
-            
-            if(user.trim() === "" || msg.trim() === "") {
-                alert("براہ کرم تمام معلومات لکھیں!");
-                return;
-            }
-            
-            let box = document.getElementById('appCommentsBox');
-            let item = document.createElement('div');
-            item.style.cssText = "background: #f8fafc; padding: 10px; border-radius: 6px; margin-top: 10px; font-size: 0.9rem;";
-            item.innerHTML = `<strong>${user}:</strong> <p>${msg}</p>`;
-            
-            box.insertBefore(item, box.firstChild);
-            
-            document.getElementById('appUser').value = "";
-            document.getElementById('appMsg').value = "";
         }
     </script>
 
