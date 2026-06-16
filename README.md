@@ -1,51 +1,85 @@
 <html lang="ur">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover Gilgit-Baltistan</title>
+    <title>Discover GB | Official Portal</title>
     <style>
-        /* Modern Dark Theme Design */
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #0a0a0a; color: #fff; }
-        
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); }
-        .logo { font-size: 1.5rem; font-weight: bold; color: #00d4ff; }
-        .nav-links a { color: white; text-decoration: none; margin: 0 15px; }
-        .login-btn { padding: 8px 20px; border-radius: 20px; border: none; background: #00d4ff; cursor: pointer; }
-
-        .hero { text-align: center; padding: 100px 20px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop'); background-size: cover; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        
-        .container { padding: 50px 8%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: #1a1a1a; padding: 20px; border-radius: 15px; transition: 0.4s; border: 1px solid #333; }
-        .card:hover { transform: translateY(-10px); border-color: #00d4ff; box-shadow: 0 10px 20px rgba(0,212,255,0.2); }
+        body { background: #050505; color: #fff; font-family: 'Poppins', sans-serif; margin: 0; padding: 20px; }
+        .navbar { display: flex; justify-content: space-between; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 15px; }
+        .card { background: #1a1a1a; padding: 20px; margin: 10px 0; border-radius: 10px; }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">Discover GB</div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Destinations</a>
-            <a href="#">Culture</a>
+        <div class="logo" style="cursor:pointer; color:#00d4ff; font-weight:bold;">Discover GB</div>
+        <div>
+            <button onclick="loginWithGoogle()">Google Login</button>
+            <button onclick="showHistory()">View History</button>
         </div>
-        <button class="login-btn">Login/Signup</button>
     </nav>
 
-    <section class="hero">
-        <h1>Khush Amdeed Gilgit-Baltistan Mein</h1>
-        <p>Explore the hidden paradise and the land of giants.</p>
-        <button style="padding: 10px 30px; border-radius: 25px; border: none; cursor: pointer; margin-top: 20px;">Start Your Adventure</button>
+    <section style="margin-top:50px;">
+        <h2>Book Your Trip</h2>
+        <select id="destination">
+            <option value="Hunza">Hunza</option>
+            <option value="Skardu">Skardu</option>
+            <option value="Astore">Astore</option>
+        </select>
+        <button onclick="saveBooking()">Confirm Booking</button>
     </section>
 
-    <div class="container">
-        <h2>Top Destinations</h2>
-        <div class="grid">
-            <div class="card"><h3>Hunza Valley</h3><p>Explore the beauty of the Karakoram mountains.</p></div>
-            <div class="card"><h3>Attabad Lake</h3><p>Witness the stunning turquoise waters.</p></div>
-            <div class="card"><h3>Skardu</h3><p>The gateway to the highest peaks.</p></div>
-        </div>
+    <div id="history-container" style="margin-top:30px;">
+        <h3>Aapki Booking History</h3>
+        <ul id="history-list"></ul>
     </div>
 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+        import { getFirestore, addDoc, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+
+        const firebaseConfig = { /* APNI CONFIG YAHAN PASTE KARO SWEETIE */ };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const db = getFirestore();
+
+        // 1. Google Login
+        window.loginWithGoogle = async () => {
+            try {
+                const result = await signInWithPopup(auth, new GoogleAuthProvider());
+                alert("Welcome, " + result.user.displayName + "! Sweetie.");
+            } catch (e) { alert("Login failed!"); }
+        };
+
+        // 2. Booking Save
+        window.saveBooking = async () => {
+            if (!auth.currentUser) return alert("Pehle login karo, sweetie!");
+            const dest = document.getElementById("destination").value;
+            await addDoc(collection(db, "bookings"), { destination: dest, userEmail: auth.currentUser.email, date: new Date().toLocaleDateString() });
+            alert("Booking confirmed, sweetie!");
+        };
+
+        // 3. History Fetch
+        window.showHistory = async () => {
+            if (!auth.currentUser) return alert("Login karo, sweetie!");
+            const q = query(collection(db, "bookings"), where("userEmail", "==", auth.currentUser.email));
+            const list = document.getElementById("history-list");
+            list.innerHTML = "";
+            (await getDocs(q)).forEach(doc => {
+                let li = document.createElement("li");
+                li.innerText = doc.data().destination + " - " + doc.data().date;
+                list.appendChild(li);
+            });
+        };
+
+        // 4. Secret Admin (5426)
+        let taps = 0;
+        document.querySelector('.logo').addEventListener('click', () => {
+            if (++taps === 5) {
+                if (prompt("Enter Admin Key:") === "5426") alert("Welcome Admin, Sweetie!");
+                taps = 0;
+            }
+        });
+    </script>
 </body>
 </html>
